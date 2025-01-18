@@ -13,7 +13,7 @@ import { ProductType } from "@/lib/types";
 // Mock product data for search results
 export default function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<ProductType[]>([]);
   const [isResultsVisible, setIsResultsVisible] = useState(false);
   const router = useRouter();
   const searchRef = useRef(null);
@@ -27,8 +27,8 @@ export default function SearchBar() {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !((searchRef.current as HTMLElement).contains(event.target as Node | null))) {
         setIsResultsVisible(false);
       }
     };

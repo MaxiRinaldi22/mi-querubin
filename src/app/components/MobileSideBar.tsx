@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 
 
-export default function MobileSidebar({ isOpen, onClose }) {
+export default function MobileSidebar({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent side="right" className="w-[300px] sm:w-[400px] py-10">
