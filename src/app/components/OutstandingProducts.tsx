@@ -9,8 +9,10 @@ import Link from "next/link";
 import { MainProducts } from "@/lib/const";
 
 export default function ProductCards() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const [isMobile, setIsMobile] = useState(false); 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [emblaRef, _emblaApi] = useEmblaCarousel({ loop: true });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_isMobile, setIsMobile] = useState(false); 
 
   useEffect(() => {
     const checkMobile = () => {
