@@ -1,17 +1,19 @@
-import Hero from './components/Hero'
-import MainProducts from './components/MainProducts'
-import ProductList from './components/ProductsList'
+import { OutstandingProducts } from "@/lib/const";
+import AboutUs from "./components/AboutUs";
+import Hero from "./components/Hero";
+import MainProducts from "./components/OutstandingProducts";
+import ProductList from "./components/ProductsList";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <div className="container mx-auto px-4 py-8 overflow-hidden">
+      <div className="w-full overflow-hidden ">
         <MainProducts />
-        
-        <ProductList />
+        <ProductList products={OutstandingProducts}/>
+        <AboutUs />
       </div>
-    </>
-  )
-}
 
+    </>
+  );
+}

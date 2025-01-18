@@ -7,16 +7,10 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search } from "lucide-react";
 import useTop from "@/hooks/useTop";
+import { AllProducts } from "@/lib/allProducts";
+import { ProductType } from "@/lib/types";
 
 // Mock product data for search results
-const products = [
-  { id: 1, name: "Laptop", price: 999.99, image: "/placeholder.svg" },
-  { id: 2, name: "Smartphone", price: 599.99, image: "/placeholder.svg" },
-  { id: 3, name: "Headphones", price: 149.99, image: "/placeholder.svg" },
-  { id: 4, name: "Tablet", price: 399.99, image: "/placeholder.svg" },
-  { id: 5, name: "Smartwatch", price: 249.99, image: "/placeholder.svg" },
-];
-
 export default function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -47,7 +41,7 @@ export default function SearchBar() {
 
   useEffect(() => {
     if (searchQuery.trim()) {
-      const filteredResults = products.filter((product) =>
+      const filteredResults = AllProducts.filter((product) =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setSearchResults(filteredResults);
@@ -72,20 +66,20 @@ export default function SearchBar() {
             placeholder="Buscar productos..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full border-2 outline-none border-primaryColor bg-[#f4f4f4] px-3 py-2 rounded-md"
+            className="w-full border-2 outline-none border-primaryColor bg-[#f4f4f4] px-3 py-2 rounded-full"
           />
           <button
             type="submit"
-            className="absolute bg-primaryColor center px-4 right-0 top-0 h-full rounded-tr-md rounded-br-md"
+            className="absolute bg-primaryColor center px-4 right-0 top-0 h-full rounded-tr-full rounded-br-full"
           >
-            <Search className="h-4 w-4 text-white " />
+            <Search className="h-5 w-5 text-[#f4f4f4] " />
           </button>
         </div>
       </form>
       {isResultsVisible && searchResults.length > 0 && (
         <Card className="absolute z-[100] w-full mt-1 max-h-96 overflow-auto">
-          <CardContent className="p-2">
-            {searchResults.map((product) => (
+          <CardContent className="p-2 bg-[#f4f4f4]">
+            {searchResults.map((product : ProductType) => (
               <div
                 key={product.id}
                 className="flex items-center space-x-4 p-2 hover:bg-gray-100 cursor-pointer"

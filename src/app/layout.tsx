@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "./components/Footer";
+import { mulish } from "@/lib/fonts";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "E-commerce App",
+  title: "Mi querubin | tienda online",
   description: "A simple e-commerce application",
 };
 
@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={mulish.className}>
         <div className="flex bg-[#f4f4f4] flex-col">
           <Header />
           <div className="sticky top-0 z-50">
@@ -27,6 +27,7 @@ export default function RootLayout({
           </div>
           <main className="flex-1">{children}</main>
         </div>
+        <Footer />
         <Toaster />
       </body>
     </html>

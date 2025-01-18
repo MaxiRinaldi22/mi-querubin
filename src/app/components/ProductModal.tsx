@@ -2,8 +2,16 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { ShoppingCart } from 'lucide-react'
+import { ProductType } from '@/lib/types'
 
-export default function ProductModal({ product, onClose, onAddToCart }) {
+
+interface ProductModalProps {
+  product: ProductType
+  onClose: () => void
+  onAddToCart: (product: ProductType) => void
+}
+
+export default function ProductModal({ product, onClose, onAddToCart }: ProductModalProps) {
   return (
     <Dialog open={true} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
