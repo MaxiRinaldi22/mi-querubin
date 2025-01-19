@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./components/Header";
-import Categories from "./components/Categories";
+import Header from "../components/Header";
+import Categories from "../components/Categories";
 import { Toaster } from "@/components/ui/toaster";
-import Footer from "./components/Footer";
+import Footer from "../components/Footer";
 import { mulish } from "@/lib/fonts";
-
+import { CartContextProvider } from "@/context/CartContextProvider";
 
 export const metadata: Metadata = {
   title: "Mi querubin | tienda online",
@@ -20,12 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={mulish.className}>
-        <div className="flex bg-[#f4f4f4] flex-col">
-          <Header />
-          <div className="sticky top-0 z-50">
-            <Categories />
-          </div>
-          <main className="flex-1">{children}</main>
+        <div className="flex flex-col bg-[#f4f4f4]">
+          <CartContextProvider>
+            <Header />
+            <div className="sticky top-0 z-50">
+              <Categories />
+            </div>
+            <main className="flex-1">{children}</main>
+          </CartContextProvider>
         </div>
         <Footer />
         <Toaster />

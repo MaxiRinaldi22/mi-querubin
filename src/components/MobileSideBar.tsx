@@ -3,8 +3,8 @@
 import { Sheet, SheetContent } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { categories } from "@/lib/const"
-import SearchBar from "./SearchBar"
 import Link from 'next/link'
+import SearchBar from "./SearchBar"
 
 
 

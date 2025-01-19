@@ -18,9 +18,9 @@ export default function ProductCard({
   return (
     <Card className="flex h-full flex-col overflow-hidden">
       <CardHeader className="relative p-0">
-        <div className="relative h-56">
+        <div className="relative h-80">
           <Image
-            src={product.image || "/placeholder.svg"}
+            src={product.images[0] || "/placeholder.svg"}
             alt={product.name}
             layout="fill"
             objectFit="cover"

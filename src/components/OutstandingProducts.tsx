@@ -43,7 +43,7 @@ export default function ProductCards() {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-20">
+    <div className="container mx-auto px-4 py-14 md:py-20">
       {/* Desktop View */}
       <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
         {MainProducts.map((product) => (
