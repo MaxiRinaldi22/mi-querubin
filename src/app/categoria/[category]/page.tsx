@@ -1,14 +1,15 @@
 import { AllProducts } from "@/lib/allProducts";
 import ProductList from "@/components/ProductsList";
 
-export default function CategoryPage({
-  params,
-}: {
-  params: { category: string };
-}) {
-  const category = params.category.toLowerCase();
+interface Props {
+  params: Promise<{ category: string }>;
+}
+
+export default async function CategoryPage(props: Props) {
+  const { category: categoryParam } = await props.params;
+  const category = categoryParam.toLowerCase();
   const filteredProducts = AllProducts.filter(
-    (product) => product.category === category,
+    (product) => product.category === category
   );
 
   return (
