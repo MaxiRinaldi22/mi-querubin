@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+
 import { ProductType } from "@/lib/types";
+import { useToast } from "@/hooks/use-toast";
 import useCartInfo from "@/hooks/useCartInfo";
+
 import ProductCard from "./ProductCart";
 import ProductModal from "./ProductModal";
 
@@ -27,7 +29,7 @@ export default function ProductList({ products }: ProductListProps) {
     if (cartInfo.find((item) => item.product.id === product.id)) {
       toast({
         title: "Este producto ya está en tu carrito",
-        duration: 2000,
+        duration: 3000,
         variant: "destructive",
       });
     } else {
@@ -37,11 +39,10 @@ export default function ProductList({ products }: ProductListProps) {
       toast({
         title: "Product added to cart",
         description: `${product.name} has been added to your cart.`,
-        duration: 2000,
+        duration: 3000,
       });
     }
   };
-
 
   return (
     <>

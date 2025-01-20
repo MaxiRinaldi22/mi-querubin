@@ -7,7 +7,10 @@ export async function login(formData: FormData) {
   const password = formData.get("password") as string;
 
   // Verifica si las credenciales son correctas
-  if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+  if (
+    email === process.env.ADMIN_EMAIL &&
+    password === process.env.ADMIN_PASSWORD
+  ) {
     // Establece la cookie de autenticación
     (await cookies()).set("auth", "true", { httpOnly: true });
     console.log("Cookie de autenticación establecida correctamente");

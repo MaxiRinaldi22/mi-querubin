@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import Header from "../components/Header";
-import Categories from "../components/Categories";
-import { Toaster } from "@/components/ui/toaster";
-import Footer from "../components/Footer";
-import { mulish } from "@/lib/fonts";
+
 import { CartContextProvider } from "@/context/CartContextProvider";
+
+import { mulish } from "@/lib/fonts";
+import { Toaster } from "@/components/ui/toaster";
+
+import Categories from "../components/Categories";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Mi querubin | tienda online",

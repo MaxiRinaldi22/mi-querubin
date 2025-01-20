@@ -1,14 +1,20 @@
-'use client'
+"use client";
 
-import { Sheet, SheetContent } from "@/components/ui/sheet"
-import { Button } from "@/components/ui/button"
-import { categories } from "@/lib/const"
-import Link from 'next/link'
-import SearchBar from "./SearchBar"
+import Link from "next/link";
 
+import { categories } from "@/lib/const";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 
+import SearchBar from "./SearchBar";
 
-export default function MobileSidebar({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
+export default function MobileSidebar({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+}) {
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent side="right" className="w-[300px] sm:w-[400px] py-10">
@@ -21,7 +27,11 @@ export default function MobileSidebar({ isOpen, onClose }: { isOpen: boolean, on
               {categories.map((category) => (
                 <li key={category}>
                   <Link href={`/category/${category.toLowerCase()}`}>
-                    <Button variant="ghost" className="w-full justify-start" onClick={onClose}>
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start"
+                      onClick={onClose}
+                    >
                       {category}
                     </Button>
                   </Link>
@@ -32,6 +42,5 @@ export default function MobileSidebar({ isOpen, onClose }: { isOpen: boolean, on
         </div>
       </SheetContent>
     </Sheet>
-  )
+  );
 }
-

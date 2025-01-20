@@ -1,14 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { ShoppingCart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import SearchBar from "./SearchBar";
-import MobileSidebar from "./MobileSideBar";
 import Image from "next/image";
-import logo from "/public/mi-quierubin-logo-m-04.png";
+import Link from "next/link";
+
+import { ShoppingCart } from "lucide-react";
+
 import { Icon } from "@/lib/Icon";
+import { Button } from "@/components/ui/button";
+
+import MobileSidebar from "./MobileSideBar";
+import SearchBar from "./SearchBar";
+import logo from "/public/mi-quierubin-logo-m-04.png";
 
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

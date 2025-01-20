@@ -1,7 +1,8 @@
 "use client";
 
-import { ProductCartType } from "@/lib/types";
 import { createContext, useState } from "react";
+
+import { ProductCartType } from "@/lib/types";
 
 type cartContextType = {
   cartInfo: ProductCartType[];

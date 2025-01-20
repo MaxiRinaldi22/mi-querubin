@@ -11,9 +11,10 @@ export type ProductType = {
   images: string[];
   category: string;
   description: string;
+  stock: number;
 };
 
 export type ProductCartType = {
   product: ProductType;
   quantity: number;
-}
+};

@@ -2,16 +2,18 @@
 
 import { useState } from "react";
 import Image from "next/image";
+
+import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
+
+import { ProductType } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from "@/components/ui/dialog";
-import { ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react";
-import { ProductType } from "@/lib/types";
 
 interface ProductModalProps {
   product: ProductType;
@@ -57,7 +59,7 @@ export default function ProductModal({
             <Button
               variant="outline"
               size="icon"
-              className="absolute left-2 top-1/2 -translate-y-1/2 transform"
+              className="absolute left-2 top-1/2 -translate-y-1/2 transform border-none bg-transparent hover:bg-transparent shadow-none transition-all duration-500 hover:scale-150"
               onClick={prevImage}
             >
               <ChevronLeft className="h-4 w-4" />
@@ -65,7 +67,7 @@ export default function ProductModal({
             <Button
               variant="outline"
               size="icon"
-              className="absolute right-2 top-1/2 -translate-y-1/2 transform"
+              className="absolute right-2 top-1/2 -translate-y-1/2 transform border-none bg-transparent hover:bg-transparent shadow-none transition-all duration-500 hover:scale-150"
               onClick={nextImage}
             >
               <ChevronRight className="h-4 w-4" />
@@ -86,14 +88,14 @@ export default function ProductModal({
               <p className="mb-4 text-3xl font-bold md:text-4xl">
                 ${product.price.toFixed(2)}
               </p>
-              <p className="mb-4 text-xl">Category: {product.category}</p>
+              <p className="mb-4 text-xl">Categoria: {product.category}</p>
               <p className="mb-6 text-base">{product.description}</p>
             </DialogDescription>
             <Button
               onClick={() => onAddToCart(product)}
               className="mt-auto w-full py-6 text-lg"
             >
-              <ShoppingCart className="mr-2 h-6 w-6" /> Add to Cart
+              <ShoppingCart className="mr-2 h-6 w-6" /> Añadir al carrito
             </Button>
           </div>
         </div>

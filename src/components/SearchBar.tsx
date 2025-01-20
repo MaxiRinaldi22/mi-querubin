@@ -1,17 +1,19 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-import { Card, CardContent } from "@/components/ui/card";
 import { Search } from "lucide-react";
-import useTop from "@/hooks/useTop";
+
 import { AllProducts } from "@/lib/allProducts";
 import { ProductType } from "@/lib/types";
-import ProductModal from "./ProductModal";
 import { toast } from "@/hooks/use-toast";
 import useCartInfo from "@/hooks/useCartInfo";
+import useTop from "@/hooks/useTop";
+import { Card, CardContent } from "@/components/ui/card";
+
+import ProductModal from "./ProductModal";
 
 export default function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -81,7 +83,7 @@ export default function SearchBar() {
     if (cartInfo.find((item) => item.product.id === product.id)) {
       toast({
         title: "Este producto ya está en tu carrito",
-        duration: 2000,
+        duration: 3000,
         variant: "destructive",
       });
     } else {
@@ -91,7 +93,7 @@ export default function SearchBar() {
       toast({
         title: "Product added to cart",
         description: `${product.name} has been added to your cart.`,
-        duration: 2000,
+        duration: 3000,
       });
     }
   };

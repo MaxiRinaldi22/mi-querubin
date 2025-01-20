@@ -29,6 +29,7 @@ export const OutstandingProducts: ProductType[] = [
     description:
       "Mate de ceramica con diseño en puntillismo y flores, colores turquesa y rosa.",
     category: "mates",
+    stock: 1,
   },
   {
     id: 2,
@@ -38,6 +39,7 @@ export const OutstandingProducts: ProductType[] = [
     description:
       "Cuadro de mdf con diseño en puntillismo y flores, color rosado. Medidas 100cm x 100cm.",
     category: "cuadros",
+    stock: 0,
   },
   {
     id: 3,
@@ -47,6 +49,7 @@ export const OutstandingProducts: ProductType[] = [
     description:
       "Taza de ceramica con diseño en puntillismo y flores, color rosado.",
     category: "tazas",
+    stock: 1,
   },
   {
     id: 4,
@@ -56,5 +59,6 @@ export const OutstandingProducts: ProductType[] = [
     description:
       "Maceta de arcilla con diseño en flores, colores turquesa y violeta. Medidas 10cm",
     category: "macetas",
+    stock: 0,
   },
 ];

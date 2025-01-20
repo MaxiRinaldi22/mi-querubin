@@ -1,10 +1,15 @@
-import ProductList from "@/components/ProductsList"
-import { AllProducts } from "@/lib/allProducts"
+import { AllProducts } from "@/lib/allProducts";
+import ProductList from "@/components/ProductsList";
 
-
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const category = params.category.toLowerCase()
-  const filteredProducts = AllProducts.filter(product => product.category === category)
+export default function CategoryPage({
+  params,
+}: {
+  params: { category: string };
+}) {
+  const category = params.category.toLowerCase();
+  const filteredProducts = AllProducts.filter(
+    (product) => product.category === category,
+  );
 
   return (
     <div className="container min-h-screen mx-auto px-4 py-8">
@@ -12,9 +17,10 @@ export default function CategoryPage({ params }: { params: { category: string } 
       {filteredProducts.length > 0 ? (
         <ProductList products={filteredProducts} />
       ) : (
-        <p className="text-xl text-gray-600">No products found in the {category} category.</p>
+        <p className="text-xl text-gray-600">
+          No products found in the {category} category.
+        </p>
       )}
     </div>
-  )
+  );
 }
-

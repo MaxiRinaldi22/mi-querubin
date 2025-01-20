@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
 import { ChevronDown } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 
 const categories = [
   { name: "Electronics" },

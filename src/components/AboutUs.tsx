@@ -1,9 +1,9 @@
 export default function AboutUs() {
   return (
-    <section className="bg-white px-5 py-12 md:px-[175px]">
+    <section className="bg-white px-5 md:px-[175px]">
       <div className="container px-4">
         <div className="max-w-3xl text-start">
-          <h2 className="mb-8 text-3xl font-bold md:text-4xl">
+          <h2 className="mb-8 border-l-2 border-[#74ffeb] pl-4 text-3xl font-bold md:text-4xl">
             Sobre Nosotros
           </h2>
 
@@ -23,15 +23,11 @@ export default function AboutUs() {
             Cada pieza es cuidadosamente diseñada para brindar un detalle
             especial a quienes las reciben.
           </p>
-          <p className="mb-8 text-start text-lg text-gray-600">
+          <p className="pb-8 text-start text-lg text-gray-600">
             Nos enorgullece ser parte de tus momentos especiales, ofreciendo
             regalos pensados con amor y dedicación. <br />
             Realizamos envíos a todo el país, asegurando que nuestras creaciones
             lleguen a cada rincón de Uruguay.
-          </p>
-          <p className="mb-8 text-start text-lg text-gray-600">
-            Gracias por apoyar el arte artesanal y por permitirnos compartir
-            nuestra pasión contigo.
           </p>
         </div>
       </div>

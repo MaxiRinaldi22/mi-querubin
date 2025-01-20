@@ -1,18 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CardContent } from "@/components/ui/card";
-import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import useEmblaCarousel from "embla-carousel-react";
+
 import { MainProducts } from "@/lib/const";
+import { CardContent } from "@/components/ui/card";
 
 export default function ProductCards() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [emblaRef, _emblaApi] = useEmblaCarousel({ loop: true });
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_isMobile, setIsMobile] = useState(false); 
+  const [_isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {

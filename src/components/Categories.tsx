@@ -1,7 +1,8 @@
 "use client";
 
-import { categories } from "@/lib/const";
 import Link from "next/link";
+
+import { categories } from "@/lib/const";
 
 export default function Categories() {
   return (

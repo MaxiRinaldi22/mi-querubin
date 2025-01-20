@@ -2,18 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+
 import { Minus, Plus } from "lucide-react";
+
+import { ProductCartType } from "@/lib/types";
+import useCartInfo from "@/hooks/useCartInfo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import useCartInfo from "@/hooks/useCartInfo";
-import { ProductCartType } from "@/lib/types";
 
 export default function Cart() {
   const { cartInfo, setCartInfo } = useCartInfo();
   const [cart, setCart] = useState<ProductCartType[]>(cartInfo);
 
   console.log(cart);
-  
 
   useEffect(() => {
     setCartInfo(cart);
@@ -33,7 +34,10 @@ export default function Cart() {
     );
   };
 
-  const total = cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
+  const total = cart.reduce(
+    (sum, item) => sum + item.product.price * item.quantity,
+    0,
+  );
 
   return (
     <div className="container mx-auto min-h-screen p-4">
@@ -88,7 +92,9 @@ export default function Cart() {
                   <span className="text-sm text-muted-foreground md:hidden">
                     Price:
                   </span>
-                  <span className="font-medium">${item.product.price.toFixed(2)}</span>
+                  <span className="font-medium">
+                    ${item.product.price.toFixed(2)}
+                  </span>
                 </div>
 
                 {/* Quantity Controls */}
@@ -97,7 +103,9 @@ export default function Cart() {
                     variant="outline"
                     size="icon"
                     className="h-8 w-8"
-                    onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                    onClick={() =>
+                      updateQuantity(item.product.id, item.quantity - 1)
+                    }
                   >
                     <Minus className="h-3 w-3" />
                     <span className="sr-only">Decrease quantity</span>
@@ -107,7 +115,10 @@ export default function Cart() {
                     min="0"
                     value={item.quantity}
                     onChange={(e) =>
-                      updateQuantity(item.product.id, parseInt(e.target.value) || 0)
+                      updateQuantity(
+                        item.product.id,
+                        parseInt(e.target.value) || 0,
+                      )
                     }
                     className="h-8 w-14 text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                   />
@@ -115,7 +126,9 @@ export default function Cart() {
                     variant="outline"
                     size="icon"
                     className="h-8 w-8"
-                    onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                    onClick={() =>
+                      updateQuantity(item.product.id, item.quantity + 1)
+                    }
                   >
                     <Plus className="h-3 w-3" />
                     <span className="sr-only">Increase quantity</span>

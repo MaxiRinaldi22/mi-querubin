@@ -1,4 +1,4 @@
-export function Icon({size, path} : {size: number, path: React.ReactNode}) {
+export function Icon({ size, path }: { size: number; path: React.ReactNode }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +6,7 @@ export function Icon({size, path} : {size: number, path: React.ReactNode}) {
       height={size}
       viewBox="0 0 24 24"
     >
-    {path}
+      {path}
     </svg>
   );
 }
