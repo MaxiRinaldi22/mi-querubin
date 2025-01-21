@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { gsap } from "gsap";
 
-import { mulish, playfair } from "@/lib/fonts";
+import { playfair } from "@/lib/fonts";
 
 import fondo from "/public/fondo.jpg";
 

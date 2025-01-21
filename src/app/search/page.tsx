@@ -24,13 +24,13 @@ const SearchPage = () => {
   return (
     <div className="container mx-auto min-h-screen px-4 py-8">
       <h1 className="mb-6 text-3xl font-bold capitalize">
-        Resultados de búsqueda para "{q}"
+        Resultados de búsqueda para &quot;{q}&quot;
       </h1>
       {products.length > 0 ? (
         <ProductList products={products} />
       ) : (
         <p className="text-xl text-gray-600">
-          No se encontraron productos para la búsqueda "{q}".
+          No se encontraron productos para la búsqueda &quot;{q}&quot;.
         </p>
       )}
     </div>
