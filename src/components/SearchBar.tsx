@@ -32,6 +32,7 @@ export default function SearchBar() {
     if (searchQuery.trim()) {
       router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
+    setIsResultsVisible(false);
   };
 
   useEffect(() => {

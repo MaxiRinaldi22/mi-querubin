@@ -59,7 +59,7 @@ export default function ProductModal({
             <Button
               variant="outline"
               size="icon"
-              className="absolute left-2 top-1/2 -translate-y-1/2 transform border-none bg-transparent hover:bg-transparent shadow-none transition-all duration-500 hover:scale-150"
+              className="absolute left-2 top-1/2 text-secondaryColor -translate-y-1/2 transform border-none bg-transparent shadow-none transition-all duration-500 hover:scale-150 hover:bg-transparent"
               onClick={prevImage}
             >
               <ChevronLeft className="h-4 w-4" />
@@ -67,7 +67,7 @@ export default function ProductModal({
             <Button
               variant="outline"
               size="icon"
-              className="absolute right-2 top-1/2 -translate-y-1/2 transform border-none bg-transparent hover:bg-transparent shadow-none transition-all duration-500 hover:scale-150"
+              className="absolute right-2 top-1/2 text-secondaryColor -translate-y-1/2 transform border-none bg-transparent shadow-none transition-all duration-500 hover:scale-150 hover:bg-transparent"
               onClick={nextImage}
             >
               <ChevronRight className="h-4 w-4" />
@@ -77,7 +77,7 @@ export default function ProductModal({
                 <div
                   key={index}
                   className={`h-2 w-2 rounded-full ${
-                    index === currentImageIndex ? "bg-primary" : "bg-gray-300"
+                    index === currentImageIndex ? "bg-secondaryColor" : "bg-gray-300"
                   }`}
                 />
               ))}
@@ -85,15 +85,17 @@ export default function ProductModal({
           </div>
           <div className="flex w-full flex-col md:w-1/3">
             <DialogDescription>
-              <p className="mb-4 text-3xl font-bold md:text-4xl">
-                ${product.price.toFixed(2)}
+              <p className="mb-4 text-3xl font-extrabold text-secondaryColor md:text-4xl">
+                ${product.price.toFixed(2)}{" "}
+                <span className="md:text-xl text-lg font-semibold text-gray-500">UYU</span>
               </p>
-              <p className="mb-4 text-xl">Categoria: {product.category}</p>
+              <p className="mb-4 text-xl">Categoria: {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
+              </p>
               <p className="mb-6 text-base">{product.description}</p>
             </DialogDescription>
             <Button
               onClick={() => onAddToCart(product)}
-              className="mt-auto w-full py-6 text-lg"
+              className="mt-auto w-full bg-secondaryColor py-6 text-lg"
             >
               <ShoppingCart className="mr-2 h-6 w-6" /> Añadir al carrito
             </Button>

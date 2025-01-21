@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,10 +10,23 @@ import { MainProducts } from "@/lib/const";
 import { CardContent } from "@/components/ui/card";
 
 export default function ProductCards() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [emblaRef, _emblaApi] = useEmblaCarousel({ loop: true });
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_isMobile, setIsMobile] = useState(false);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCurrentIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -38,9 +51,25 @@ export default function ProductCards() {
           height={150}
           className="object-cover transition-all duration-700 group-hover:scale-110"
         />
-        <h3 className="text-center text-xl font-bold tracking-wide">{title}</h3>
+        <h3 className="text-center text-lg font-bold tracking-wide text-secondaryColor">
+          {title.toUpperCase()}
+        </h3>
       </CardContent>
     </div>
+  );
+
+  const DotButton = ({
+    selected,
+    onClick,
+  }: {
+    selected: boolean;
+    onClick: () => void;
+  }) => (
+    <button
+      className={`mr-2 h-2 w-2 rounded-full transition-all ${selected ? "bg-secondaryColor" : "bg-gray-300"}`}
+      type="button"
+      onClick={onClick}
+    />
   );
 
   return (
@@ -62,16 +91,30 @@ export default function ProductCards() {
       </div>
 
       {/* Mobile Carousel */}
-      <div className="md:hidden" ref={emblaRef}>
-        <div className="flex">
-          {MainProducts.map((product) => (
-            <div key={product.id} className="min-w-0 flex-[0_0_100%] pl-4">
-              <Link href={`/categoria/${product.title.toLowerCase()}`}>
-                <ProductCard title={product.title} image={product.img} />
-              </Link>
-            </div>
-          ))}
+      <div className="md:hidden">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {MainProducts.map((product) => (
+              <div key={product.id} className="min-w-0 flex-[0_0_100%] pl-4">
+                <Link href={`/categoria/${product.title.toLowerCase()}`}>
+                  <ProductCard title={product.title} image={product.img} />
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
+        {/* Dots */}
+        {isMobile && (
+          <div className="mt-4 flex justify-center">
+            {MainProducts.map((_, index) => (
+              <DotButton
+                key={index}
+                selected={index === currentIndex}
+                onClick={() => emblaApi && emblaApi.scrollTo(index)}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

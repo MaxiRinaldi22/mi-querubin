@@ -13,10 +13,10 @@ export const categories = [
 ];
 
 export const MainProducts: MainProductsType[] = [
-  { id: 1, title: "Mates", img: "/products/mate.png" },
-  { id: 2, title: "Macetas", img: "/products/maceta.png" },
-  { id: 3, title: "Cuadros", img: "/products/cuadro.png" },
-  { id: 4, title: "Tazas", img: "/products/taza.png" },
+  { id: 1, title: "Mates", img: "/svg/mates-svg.png" },
+  { id: 2, title: "Macetas", img: "/svg/macetas-svg.png" },
+  { id: 3, title: "Cuadros", img: "/svg/cuadros-svg.png" },
+  { id: 4, title: "Llaveros", img: "/svg/llaveros-svg.png" },
 ];
 
 // Mock product data

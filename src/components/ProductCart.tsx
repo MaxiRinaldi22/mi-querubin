@@ -1,46 +1,41 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Info, ShoppingCart } from "lucide-react"
-import type { ProductType } from "@/lib/types"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import Image from "next/image";
+
+import { Info, ShoppingCart } from "lucide-react";
+
+import type { ProductType } from "@/lib/types";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ProductCardProps {
-  product: ProductType
-  onProductClick: (product: ProductType) => void
-  onAddToCart: (product: ProductType) => void
+  product: ProductType;
+  onProductClick: (product: ProductType) => void;
+  onAddToCart: (product: ProductType) => void;
 }
 
-export default function ProductCard({ product, onProductClick, onAddToCart }: ProductCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
-
+export default function ProductCard({
+  product,
+  onProductClick,
+  onAddToCart,
+}: ProductCardProps) {
   return (
-    <Card
-      className="group relative flex h-full flex-col cursor-pointer overflow-hidden border border-gray-200 bg-white transition-all duration-300 ease-in-out hover:shadow-lg"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-     
-    >
-      <CardHeader  className="relative p-0">
+    <Card className="group relative flex h-full cursor-pointer flex-col overflow-hidden hover:border-secondaryColor hover:border-2 border-2 border-transparent  bg-secondaryColor/5 transition-colors duration-500  hover:shadow-lg">
+      <CardHeader className="relative p-0">
         <div className="relative aspect-square overflow-hidden">
           <Image
-           onClick={() => onProductClick(product)}
+            onClick={() => onProductClick(product)}
             src={product.images[0] || "/placeholder.svg"}
             alt={product.name}
             layout="fill"
             objectFit="cover"
-            className="transition-transform duration-500 ease-out group-hover:scale-105"
+            className="transition-transform will-change-transform duration-500 ease-out group-hover:scale-105"
           />
-         
         </div>
-        <div
-          className={`absolute bottom-4 left-4 right-4 flex justify-between transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
-        >
+        <div className="absolute bottom-4 left-4 right-4 flex justify-between transition-opacity duration-300">
           <Button
             onClick={() => onProductClick(product)}
-            className="rounded-full bg-white/90 p-2 text-gray-800 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-[#74ffeb]"
+            className="rounded-full bg-white/90 p-2 text-secondaryColor shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-[#74ffeb]"
             size="icon"
             variant="secondary"
           >
@@ -48,7 +43,7 @@ export default function ProductCard({ product, onProductClick, onAddToCart }: Pr
           </Button>
           <Button
             onClick={() => onAddToCart(product)}
-            className="rounded-full bg-[#74ffeb]/90 p-2 text-gray-800 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-[#74ffeb]"
+            className="rounded-full bg-secondaryColor p-2 text-white shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-[#74ffeb]"
             size="icon"
             variant="secondary"
           >
@@ -56,19 +51,22 @@ export default function ProductCard({ product, onProductClick, onAddToCart }: Pr
           </Button>
         </div>
       </CardHeader>
-      <CardContent  onClick={() => onProductClick(product)} className="flex flex-grow flex-col justify-between p-6">
+      <CardContent
+        onClick={() => onProductClick(product)}
+        className="flex flex-grow flex-col justify-between p-6"
+      >
         <div>
-          <CardTitle className="mb-2 text-lg font-medium tracking-tight text-gray-900 transition-colors duration-300">
+          <CardTitle className="mb-2 text-lg font-semibold tracking-tight text-gray-900 ">
             {product.name}
           </CardTitle>
         </div>
-        <div  className="mt-4 flex items-center justify-between">
-          <p className="text-xl font-bold text-gray-900">
-            ${product.price.toFixed(2)} <span className="text-sm font-normal text-gray-500">UYU</span>
+        <div className="mt-4 flex items-center justify-between">
+          <p className="text-xl font-extrabold text-secondaryColor">
+            ${product.price.toFixed(2)}{" "}
+            <span className="text-sm font-semibold text-gray-500">UYU</span>
           </p>
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
-

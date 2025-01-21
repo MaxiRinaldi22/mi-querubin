@@ -4,11 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { ShoppingCart } from "lucide-react";
-
 import { Icon } from "@/lib/Icon";
-import { Button } from "@/components/ui/button";
 
+import { CartItem } from "./CartItem";
 import MobileSidebar from "./MobileSideBar";
 import SearchBar from "./SearchBar";
 import logo from "/public/mi-quierubin-logo-m-04.png";
@@ -38,35 +36,16 @@ export default function Header() {
         <div className="hidden max-w-xl flex-1 md:block">
           <SearchBar />
         </div>
+
         <div className="center">
-          <Link href="/cart">
-            <button className="hidden md:center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={32}
-                height={32}
-                viewBox="0 0 256 256"
-              >
-                <path
-                  fill="#74ffeb"
-                  d="M216 64h-40a48 48 0 0 0-96 0H40a16 16 0 0 0-16 16v120a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16m-88-32a32 32 0 0 1 32 32H96a32 32 0 0 1 32-32m88 168H40V80h40v16a8 8 0 0 0 16 0V80h64v16a8 8 0 0 0 16 0V80h40Z"
-                ></path>
-              </svg>
-            </button>
-          </Link>
-          <div className="flex items-center space-x-2 md:hidden">
-            <Link href="/cart">
-              <Button variant="ghost" size="icon">
-                <ShoppingCart className="h-6 w-6" />
-              </Button>
-            </Link>
+          <CartItem>
             <button onClick={() => setIsSidebarOpen(true)}>
               <Icon
                 size={26}
                 path={
                   <path
                     fill="none"
-                    stroke="#003b73"
+                    stroke="#74ffeb"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
@@ -75,7 +54,7 @@ export default function Header() {
                 }
               />
             </button>
-          </div>
+          </CartItem>
         </div>
       </div>
       <MobileSidebar

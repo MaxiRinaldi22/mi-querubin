@@ -14,12 +14,12 @@ export default async function CategoryPage(props: Props) {
 
   return (
     <div className="container min-h-screen mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 capitalize">{category}</h1>
+      <h1 className="text-3xl font-bold mb-6 capitalize">{category.replaceAll('%20', ' ')}</h1>
       {filteredProducts.length > 0 ? (
         <ProductList products={filteredProducts} />
       ) : (
         <p className="text-xl text-gray-600">
-          No products found in the {category} category.
+          No products found in the {category.replaceAll('%20', ' ')} category.
         </p>
       )}
     </div>

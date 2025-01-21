@@ -26,7 +26,7 @@ export default function MobileSidebar({
             <ul className="space-y-2">
               {categories.map((category) => (
                 <li key={category}>
-                  <Link href={`/category/${category.toLowerCase()}`}>
+                  <Link href={`/categoria/${category.toLowerCase()}`}>
                     <Button
                       variant="ghost"
                       className="w-full justify-start"
