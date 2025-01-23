@@ -197,7 +197,8 @@ export default function CMSPage() {
               <FormField
                 control={form.control}
                 name="mainImage"
-                render={({ field: { value, onChange, ...field } }) => (
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                render={({ field: { value, onChange, ...field } }) => ( 
                   <FormItem>
                     <FormLabel>Main Image (Required)</FormLabel>
                     <FormControl>
@@ -227,6 +228,7 @@ export default function CMSPage() {
               <FormField
                 control={form.control}
                 name="optionalImage1"
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 render={({ field: { value, onChange, ...field } }) => (
                   <FormItem>
                     <FormLabel>Optional Image 1</FormLabel>
@@ -257,6 +259,7 @@ export default function CMSPage() {
               <FormField
                 control={form.control}
                 name="optionalImage2"
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 render={({ field: { value, onChange, ...field } }) => (
                   <FormItem>
                     <FormLabel>Optional Image 2</FormLabel>
