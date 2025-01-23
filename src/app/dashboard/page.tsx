@@ -7,11 +7,9 @@ export default async function DashboardPage() {
 
   if (!isAuthenticated) {
     redirect("/login");
+  } else {
+    redirect("/dashboard/pedidos");
   }
 
-  return (
-    <div className="container h-full w-full max-w-full p-4 sm:max-w-none">
-      <h1 className="mb-4 text-2xl font-bold sm:text-3xl">Panel</h1>
-    </div>
-  );
+
 }

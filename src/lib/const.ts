@@ -55,7 +55,7 @@ export const OutstandingProducts: ProductType[] = [
     id: 4,
     name: "Maceta de arcilla - flores - turquesa y violeta",
     price: 699,
-    images: ["/products/maceta.png"],
+    images: ["/products/maceta-violeta.png"],
     description:
       "Maceta de arcilla con diseño en flores, colores turquesa y violeta. Medidas 10cm",
     category: "macetas",

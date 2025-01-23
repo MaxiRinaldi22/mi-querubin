@@ -6,7 +6,7 @@ import useCartInfo from "@/hooks/useCartInfo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-export function CartItem({children} : {children: React.ReactNode}) {
+export function CartItem({ children }: { children: React.ReactNode }) {
   const { cartInfo } = useCartInfo();
 
   return (
@@ -25,17 +25,11 @@ export function CartItem({children} : {children: React.ReactNode}) {
             ></path>
           </svg>
           {cartInfo.length > 0 ? (
-            <Badge
-              variant="destructive"
-              className="absolute -right-1 -top-1 rounded-full bg-secondaryColor px-2 py-1 text-xs"
-            >
+            <Badge className="absolute -right-1 -top-1 rounded-full bg-secondaryColor px-2 py-1 text-xs">
               {cartInfo.length}
             </Badge>
           ) : (
-            <Badge
-              variant="destructive"
-              className="absolute -right-1 -top-1 rounded-full bg-secondaryColor px-2 py-1 text-xs"
-            >
+            <Badge className="absolute -right-1 -top-1 rounded-full bg-secondaryColor px-2 py-1 text-xs">
               0
             </Badge>
           )}
@@ -57,17 +51,11 @@ export function CartItem({children} : {children: React.ReactNode}) {
               ></path>
             </svg>
             {cartInfo.length > 0 ? (
-              <Badge
-                variant="destructive"
-                className="absolute -right-1 -top-1 rounded-full bg-secondaryColor px-2 py-1 text-xs"
-              >
+              <Badge className="absolute -right-1 -top-1 rounded-full bg-secondaryColor px-2 py-1 text-xs">
                 {cartInfo.length}
               </Badge>
             ) : (
-              <Badge
-                variant="destructive"
-                className="absolute -right-1 -top-1 rounded-full bg-secondaryColor px-2 py-1 text-xs"
-              >
+              <Badge className="absolute -right-1 -top-1 rounded-full bg-secondaryColor px-2 py-1 text-xs">
                 0
               </Badge>
             )}

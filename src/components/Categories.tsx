@@ -11,28 +11,41 @@ export default function Categories() {
   const isTop = useTop();
 
   return (
-    <nav className="hidden border-y border-[#E7E7E7] bg-[#f4f4f4] py-2 text-secondaryColor md:flex md:items-center md:justify-between md:px-[183px]">
-      <div></div>
-      <div className="  ">
-        <ul className="center space-x-4 py-2">
-          {categories.map((category) => (
-            <li key={category} className="center gap-3">
-              <Link href={`/categoria/${category.toLowerCase()}`}>
-                <button className="w-full justify-start text-base font-semibold md:w-auto">
-                  {category}
-                </button>
-              </Link>
-              {category !== "Colgantes" ? (
-                <p className="text-primaryColor">|</p>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className={`hidden  transition-all duration-300 md:flex md:items-center md:justify-end ${isTop ? "opacity-0" : "opacity-100"}`}>
-        <CartItem>
-          <></>
-        </CartItem>
+    <nav className="hidden border-y border-[#E7E7E7] bg-[#f4f4f4] py-2 text-secondaryColor md:flex md:items-center md:justify-between">
+      <div className="container mx-auto flex items-center justify-between">
+        {/* Primer Div */}
+        <div className="flex flex-1 justify-start">
+          {/* Aquí puedes añadir contenido adicional si lo necesitas */}
+        </div>
+
+        {/* Categorías (ocupa la mayor parte del espacio) */}
+        <div className="flex-[3]">
+          <ul className="flex items-center justify-center space-x-4 py-2">
+            {categories.map((category) => (
+              <li key={category} className="flex items-center gap-3">
+                <Link href={`/categoria/${category.toLowerCase()}`}>
+                  <button className="text-base font-semibold">
+                    {category}
+                  </button>
+                </Link>
+                {category !== "Colgantes" ? (
+                  <p className="text-primaryColor">|</p>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Último Div */}
+        <div
+          className={`flex flex-1 items-center justify-end transition-all duration-300 ${
+            isTop ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          <CartItem>
+            <></>
+          </CartItem>
+        </div>
       </div>
     </nav>
   );

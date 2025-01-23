@@ -15,7 +15,7 @@ export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <header className="bg-[#f4f4f4] p-3 shadow-md md:shadow-none">
+    <header className="bg-[#f4f4f4] p-3 md:py-4 shadow-md md:shadow-none">
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold">
           <Image

@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -12,27 +10,18 @@ import { Label } from "@/components/ui/label";
 import { login } from "../actions/auth";
 
 export default function LoginForm() {
-  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
   async function handleSubmit(formData: FormData) {
     const result = await login(formData);
+
     if (result.success) {
       router.push("/dashboard");
     } else {
-      setError(result.error || "An error occurred");
+      alert("Error al iniciar sesión");
     }
   }
 
-  useEffect(() => {
-    if (error) {
-      toast({
-        title: "Error al iniciar sesión",
-        duration: 2000,
-        variant: "destructive",
-      });
-    }
-  }, [error]);
 
   return (
     <Card className="pt-4">
