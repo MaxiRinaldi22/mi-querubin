@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+import { useNotification } from "@/context/NotificationContextProvider";
 import { Search } from "lucide-react";
 
 import { AllProducts } from "@/lib/allProducts";
 import { ProductType } from "@/lib/types";
-import { toast } from "@/hooks/use-toast";
 import useCartInfo from "@/hooks/useCartInfo";
 import useTop from "@/hooks/useTop";
 import { Card, CardContent } from "@/components/ui/card";
@@ -26,6 +26,7 @@ export default function SearchBar() {
   const searchRef = useRef(null);
   const isTop = useTop();
   const { cartInfo, setCartInfo } = useCartInfo();
+  const { addNotification } = useNotification();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -82,19 +83,19 @@ export default function SearchBar() {
   const handleAddToCart = (product: ProductType) => {
     // Si el producto ya esta en el carrito manda una notificacion si no esta lo agrega
     if (cartInfo.find((item) => item.product.id === product.id)) {
-      toast({
-        title: "Este producto ya está en tu carrito",
-        duration: 3000,
-        variant: "destructive",
+      addNotification({
+        id: product.name, // TODO cambiar esto por el id tipo sku
+        name: product.name,
+        image: product.images[0],
       });
     } else {
       const updatedCart = [...cartInfo, { product, quantity: 1 }];
       setCartInfo(updatedCart);
 
-      toast({
-        title: "Product added to cart",
-        description: `${product.name} has been added to your cart.`,
-        duration: 3000,
+      addNotification({
+        id: product.name, // TODO cambiar esto por el id tipo sku
+        name: product.name,
+        image: product.images[0],
       });
     }
   };

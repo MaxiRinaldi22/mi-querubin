@@ -22,7 +22,6 @@ export default function LoginForm() {
     }
   }
 
-
   return (
     <Card className="pt-4">
       <form action={handleSubmit}>

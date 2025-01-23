@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 
+import { useNotification } from "@/context/NotificationContextProvider";
+
 import { ProductType } from "@/lib/types";
-import { useToast } from "@/hooks/use-toast";
 import useCartInfo from "@/hooks/useCartInfo";
 
 import ProductCard from "./ProductCart";
@@ -17,9 +18,8 @@ export default function ProductList({ products }: ProductListProps) {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
     null,
   );
-  const { toast } = useToast();
   const { cartInfo, setCartInfo } = useCartInfo();
-
+  const { addNotification } = useNotification();
   const handleProductClick = (product: ProductType) => {
     setSelectedProduct(product);
   };
@@ -27,19 +27,19 @@ export default function ProductList({ products }: ProductListProps) {
   const handleAddToCart = (product: ProductType) => {
     // Si el producto ya esta en el carrito manda una notificacion si no esta lo agrega
     if (cartInfo.find((item) => item.product.id === product.id)) {
-      toast({
-        title: "Este producto ya está en tu carrito",
-        duration: 3000,
-        variant: "destructive",
+      addNotification({
+        id: product.name, // TODO cambiar esto por el id tipo sku
+        name: product.name,
+        image: product.images[0],
       });
     } else {
       const updatedCart = [...cartInfo, { product, quantity: 1 }];
       setCartInfo(updatedCart);
 
-      toast({
-        title: "Product added to cart",
-        description: `${product.name} has been added to your cart.`,
-        duration: 3000,
+      addNotification({
+        id: product.name, // TODO cambiar esto por el id tipo sku
+        name: product.name,
+        image: product.images[0],
       });
     }
   };

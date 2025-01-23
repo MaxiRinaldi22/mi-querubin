@@ -36,7 +36,7 @@ export default function Footer() {
       ),
     },
     {
-      title: "Instagram",
+      title: "Facebook",
       link: "https://www.instagram.com/mi_quierubin04/", // Cahnge the instagram link to facebook
       icon: (
         <svg

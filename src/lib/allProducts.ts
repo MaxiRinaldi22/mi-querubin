@@ -60,7 +60,7 @@ export const AllProducts: ProductType[] = [
     description:
       "Maceta de arcilla con diseño en puntillismo, colores azul, blanco, naraja y celeste. Medidas 10cm",
     category: "macetas",
-    stock: 1,
+    stock: 0,
   },
   {
     id: 7,

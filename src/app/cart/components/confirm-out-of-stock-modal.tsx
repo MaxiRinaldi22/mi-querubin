@@ -29,7 +29,7 @@ export function ConfirmOutOfStockModal({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
-        <DialogHeader >
+        <DialogHeader>
          
           <DialogTitle className="flex gap-2 items-center">
             <Icon
@@ -44,7 +44,7 @@ export function ConfirmOutOfStockModal({
               }
               size={24}
             />
-            <p>Confirmar compra con productos sin stock</p>
+            <p className="text-start">Confirmar compra con productos sin stock</p>
           </DialogTitle>
         </DialogHeader>
         <div className="mt-4">

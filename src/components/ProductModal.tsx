@@ -43,13 +43,13 @@ export default function ProductModal({
 
   return (
     <Dialog open={true} onOpenChange={onClose}>
-      <DialogContent className="flex h-auto max-h-[90vh] w-full flex-col sm:max-w-[90vw] lg:max-w-[1000px] xl:max-w-[1200px]">
+      <DialogContent className="flex h-auto p-5 max-h-screen w-full flex-col sm:max-w-[90vw] lg:max-w-[1000px] xl:max-w-[1200px]">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold md:text-3xl">
+          <DialogTitle className="text-2xl text-start font-bold md:text-3xl">
             {product.name}
           </DialogTitle>
         </DialogHeader>
-        <div className="flex flex-grow flex-col gap-6 md:flex-row md:gap-8">
+        <div className="flex flex-grow flex-col gap-1 md:flex-row md:gap-8">
           <div className="relative aspect-square w-full md:aspect-[4/3] md:w-2/3 lg:aspect-[16/9]">
             <Image
               src={product.images[currentImageIndex] || "/placeholder.svg"}
@@ -60,7 +60,7 @@ export default function ProductModal({
             <Button
               variant="outline"
               size="icon"
-              className="absolute left-2 top-1/2 -translate-y-1/2 transform border-none bg-transparent text-secondaryColor shadow-none transition-all duration-500 hover:scale-150 hover:bg-transparent"
+              className="absolute left-0 top-1/2 -translate-y-1/2 transform border-none bg-transparent text-secondaryColor shadow-none transition-all duration-500 hover:scale-150 hover:bg-transparent"
               onClick={prevImage}
             >
               <ChevronLeft className="h-4 w-4" />
@@ -68,7 +68,7 @@ export default function ProductModal({
             <Button
               variant="outline"
               size="icon"
-              className="absolute right-2 top-1/2 -translate-y-1/2 transform border-none bg-transparent text-secondaryColor shadow-none transition-all duration-500 hover:scale-150 hover:bg-transparent"
+              className="absolute right-0 top-1/2 -translate-y-1/2 transform border-none bg-transparent text-secondaryColor shadow-none transition-all duration-500 hover:scale-150 hover:bg-transparent"
               onClick={nextImage}
             >
               <ChevronRight className="h-4 w-4" />
@@ -88,13 +88,13 @@ export default function ProductModal({
           </div>
           <div className="flex w-full flex-col md:w-1/3">
             <DialogDescription>
-              <p className="mb-4 text-3xl font-extrabold text-secondaryColor md:text-4xl">
+              <p className="md:mb-1 text-3xl font-extrabold text-secondaryColor md:text-4xl">
                 ${product.price.toFixed(2)}{" "}
                 <span className="text-lg font-semibold text-gray-500 md:text-xl">
                   UYU
                 </span>
               </p>
-              <p className="mb-4 text-xl">
+              <p className="mb-4 text-lg md:text-xl">
                 Categoria:{" "}
                 {product.category.charAt(0).toUpperCase() +
                   product.category.slice(1)}
@@ -102,7 +102,7 @@ export default function ProductModal({
               <p className="mb-6 text-base">{product.description}</p>
               {product.stock === 0 && (
                 <div className="my-4 rounded-md border-l-4 border-yellow-500 bg-yellow-100 p-4 text-yellow-700">
-                  <div className="flex gap-2 items-center">
+                  <div className="flex items-center gap-2">
                     <Icon
                       path={
                         <g fill="none">
