@@ -6,15 +6,8 @@ import api from "@/api";
 
 import { FormInfoType, ProductCartType } from "../types";
 
-async function add(formData: FormData, cartInfo: ProductCartType) {
-  // Este get se tiene que hacer en route.ts
-  // const message = formData.get("nombre") as string;
-  // const price = cartInfo.reduce(
-  //   (total, item) => total + item.product.price * item.quantity,
-  //   0,
-  // );
+async function add(formData: FormData, cartInfo: ProductCartType[]) {
 
-  // A esto le tiene que llegar el cart info y toda la informacion del pedido
   const formDataInfo: FormInfoType = {
     personalInfo: {
       name: formData.get("name") as string,

@@ -8,7 +8,7 @@ export const mercadopago = new MercadoPagoConfig({
 
 const api = {
   message: {
-    async submit(cartInfo: ProductCartType, clientInfo: FormInfoType) {
+    async submit(cartInfo: ProductCartType[], clientInfo: FormInfoType) {
       // Creamos la preferencia incluyendo el precio, titulo y metadata. La información de `items` es standard de Mercado Pago. La información que nosotros necesitamos para nuestra DB debería vivir en `metadata`.
       const preference = await new Preference(mercadopago).create({
         body: {
