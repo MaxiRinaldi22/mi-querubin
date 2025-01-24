@@ -46,7 +46,7 @@ export const MainProducts: MainProductsType[] = [
 // Mock product data
 export const OutstandingProducts: ProductType[] = [
   {
-    id: 1,
+    id: "1",
     name: "Mate de ceramica - puntillismo y flores - turquesa y rosado",
     price: 699,
     images: ["/products/mate.png"],
@@ -56,7 +56,7 @@ export const OutstandingProducts: ProductType[] = [
     stock: 1,
   },
   {
-    id: 2,
+    id: "2",
     name: "Cuadro de mdf - puntillismo y flores - rosado",
     price: 2999,
     images: ["/products/cuadro.png"],
@@ -66,7 +66,7 @@ export const OutstandingProducts: ProductType[] = [
     stock: 0,
   },
   {
-    id: 3,
+    id: "3",
     name: "Taza de ceramica - puntillismo y flores - rosado",
     price: 750,
     images: ["/products/taza.png"],
@@ -76,7 +76,7 @@ export const OutstandingProducts: ProductType[] = [
     stock: 1,
   },
   {
-    id: 4,
+    id: "4",
     name: "Maceta de arcilla - flores - turquesa y violeta",
     price: 699,
     images: ["/products/maceta-violeta.png"],
