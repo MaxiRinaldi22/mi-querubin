@@ -7,7 +7,7 @@ export default function Footer() {
   const contact = [
     {
       title: "Instagram",
-      link: "https://www.instagram.com/mi_quierubin04/",// Change the instagram link
+      link: "https://www.instagram.com/mi_quierubin04/", // Change the instagram link
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ export default function Footer() {
   const products = ["Mates", "Macetas", "Cuadros"];
 
   return (
-    <footer className="bg-primaryColor">
+    <footer className="bg-gradient-to-t from-primaryColor to-[#f4f4f4] text-black">
       <div className="container mx-auto px-4 py-4">
         <div className="flex flex-col items-center justify-between gap-8 px-5 md:flex-row md:px-10">
           <div className="flex h-full min-h-36 w-full flex-col items-center justify-between">

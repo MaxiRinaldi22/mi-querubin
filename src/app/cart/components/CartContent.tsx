@@ -21,32 +21,43 @@ export function CartContent() {
   const router = useRouter();
   const { cartInfo, setCartInfo } = useCartInfo();
   const [cart, setCart] = useState<ProductCartType[]>(cartInfo);
+  const [itemToRemove, setItemToRemove] = useState<ProductCartType | null>(
+    null,
+  );
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOutOfStockModalOpen, setIsOutOfStockModalOpen] = useState(false);
   const [isConfirmOutOfStockModalOpen, setIsConfirmOutOfStockModalOpen] =
     useState(false);
+  console.log(itemToRemove);
 
-  const handleRemoveClick = () => {
+  const handleRemoveClick = (item: ProductCartType) => {
+    // console.log("Item to remove:", item);
+    setItemToRemove(item);
     setIsModalOpen(true);
   };
 
-  const handleConfirmRemove = (item: ProductCartType) => {
-    removeFromCart(item.product.id);
-    setIsModalOpen(false);
+  const handleConfirmRemove = () => {
+    // console.log("Confirm remove item:", itemToRemove);
+    if (itemToRemove) {
+      removeFromCart(itemToRemove.product.id);
+      setIsModalOpen(false);
+      setItemToRemove(null);
+    }
   };
 
   useEffect(() => {
     setCartInfo(cart);
   }, [cart, setCartInfo]);
 
-
   // Esto no funciona bien saca cualquier componente
-  const removeFromCart = (productId: number) => {
+  const removeFromCart = (productId: string) => {
+    // console.log("Removing product with ID:", productId);
+
     setCart(cart.filter((item) => item.product.id !== productId));
   };
 
-  const updateQuantity = (productId: number, newQuantity: number) => {
+  const updateQuantity = (productId: string, newQuantity: number) => {
     setCart(
       cart.map((item) =>
         item.product.id === productId
@@ -133,6 +144,9 @@ export function CartContent() {
               </span>
               <span className="font-medium">
                 ${item.product.price.toFixed(2)}
+                <span className="ml-1 text-xs font-semibold text-gray-500">
+                  UYU
+                </span>
               </span>
             </div>
 
@@ -181,6 +195,9 @@ export function CartContent() {
               </span>
               <span className="font-medium">
                 ${(item.product.price * item.quantity).toFixed(2)}
+                <span className="ml-1 text-xs font-semibold text-gray-500">
+                  UYU
+                </span>
               </span>
             </div>
 
@@ -190,7 +207,7 @@ export function CartContent() {
                 variant="destructive"
                 size="sm"
                 className="w-full md:w-auto"
-                onClick={handleRemoveClick}
+                onClick={() => handleRemoveClick(item)}
               >
                 Eliminar
               </Button>
@@ -198,8 +215,8 @@ export function CartContent() {
             <RemoveFromCartModal
               isOpen={isModalOpen}
               onClose={() => setIsModalOpen(false)}
-              onConfirm={() => handleConfirmRemove(item)}
-              productName={item.product.name}
+              onConfirm={handleConfirmRemove}
+              productName={itemToRemove?.product.name || ""}
             />
           </div>
         ))}
@@ -208,7 +225,12 @@ export function CartContent() {
       {/* Cart Total and Checkout */}
       <div className="mt-4 flex flex-col items-center justify-end text-right">
         <div className="flex w-full items-center justify-end">
-          <p className="mr-4 text-xl font-bold">Total: ${total.toFixed(2)}</p>
+          <p className="mr-4 text-xl font-bold">
+            Total: ${total.toFixed(2)}
+            <span className="ml-1 text-sm font-semibold text-gray-500">
+              UYU
+            </span>
+          </p>
           <div>
             {hasOutOfStockItems && (
               <div className="rounded-md border-l-2 border-yellow-500 bg-yellow-100 p-1 text-yellow-700">

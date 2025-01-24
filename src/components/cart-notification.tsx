@@ -27,7 +27,7 @@ const NotificationItem: React.FC<{
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
-    }, 5000);
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, [onClose]);
@@ -68,15 +68,7 @@ const NotificationItem: React.FC<{
           )}
         </div>
         <div className="mt-4 flex space-x-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="flex-1"
-            onClick={() => {
-              console.log("View cart");
-              onClose();
-            }}
-          >
+          <Button variant="outline" size="sm" className="flex-1">
             <Link href={"/cart"} className="flex gap-1">
               <ShoppingCart className="mr-2 h-4 w-4" />
               <p>View Cart</p>
@@ -85,11 +77,7 @@ const NotificationItem: React.FC<{
           <Button
             variant="default"
             size="sm"
-            className="flex-1"
-            onClick={() => {
-              console.log("Go to checkout");
-              onClose();
-            }}
+            className="flex-1 bg-secondaryColor"
           >
             <Link href={"/checkout"} className="flex gap-1">
               <CreditCard className="mr-2 h-4 w-4" />

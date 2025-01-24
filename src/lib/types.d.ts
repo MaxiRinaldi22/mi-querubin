@@ -5,7 +5,7 @@ export type MainProductsType = {
 };
 
 export type ProductType = {
-  id: number;
+  id: string;
   name: string;
   price: number;
   images: string[];
@@ -18,3 +18,32 @@ export type ProductCartType = {
   product: ProductType;
   quantity: number;
 };
+
+export type FormInfoType = {
+  personalInfo: {
+    name: string;
+    lastName: string;
+    document: string;
+  };
+  directionInfo: {
+    direccion: string;
+    opcionalDirreccion?: string;
+    city: string;
+    departament: string;
+  };
+  contactInfo: {
+    phone: string;
+    email: string;
+  };
+  tipo: string;
+  notes?: string;
+  pickupInfo?: {
+    name: string;
+    document: string;
+  };
+};
+
+export type DBType = {
+  cartInfo: ProductCartType[];
+  formData: FormInfoType;
+}

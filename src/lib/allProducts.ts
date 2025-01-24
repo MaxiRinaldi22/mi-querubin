@@ -1,9 +1,8 @@
 import { ProductType } from "./types";
 
-// cambiar el id por un sku
 export const AllProducts: ProductType[] = [
   {
-    id: 1,
+    id: "MATE-001",
     name: "Mate de ceramica - puntillismo y flores - turquesa y rosado",
     price: 699,
     images: ["/products/mate.png"],
@@ -13,7 +12,7 @@ export const AllProducts: ProductType[] = [
     stock: 0,
   },
   {
-    id: 2,
+    id: "CUADRO-001",
     name: "Cuadro de mdf - puntillismo y flores - rosado",
     price: 2999,
     images: ["/products/cuadro.png"],
@@ -23,7 +22,7 @@ export const AllProducts: ProductType[] = [
     stock: 0,
   },
   {
-    id: 3,
+    id: "TAZA-001",
     name: "Taza de ceramica - puntillismo y flores - rosado",
     price: 750,
     images: ["/products/taza.png"],
@@ -33,7 +32,7 @@ export const AllProducts: ProductType[] = [
     stock: 1,
   },
   {
-    id: 4,
+    id: "MACETA-001",
     name: "Maceta de arcilla - flores - turquesa y violeta",
     price: 699,
     images: ["/products/maceta-violeta.png", "/products/taza.png"],
@@ -43,7 +42,7 @@ export const AllProducts: ProductType[] = [
     stock: 1,
   },
   {
-    id: 5,
+    id: "MACETA-002",
     name: "Maceta de arcilla - puntillismo - marron, azul, naranja y blanco",
     price: 699,
     images: ["/products/maceta-marron01.png"],
@@ -53,7 +52,7 @@ export const AllProducts: ProductType[] = [
     stock: 1,
   },
   {
-    id: 6,
+    id: "MACETA-003",
     name: "Maceta de arcilla - puntillismo - azul, blanco, naraja y celeste",
     price: 450,
     images: ["/products/maceta-azul.png"],
@@ -63,7 +62,7 @@ export const AllProducts: ProductType[] = [
     stock: 0,
   },
   {
-    id: 7,
+    id: "MACETA-004",
     name: "Maceta de arcilla - puntillismo - marron, azul, naranja y blanco",
     price: 699,
     images: ["/products/maceta-marron02.png"],

@@ -12,6 +12,30 @@ export const categories = [
   "Colgantes",
 ];
 
+export const departamentos = [
+  "Artigas",
+  "Canelones",
+  "Cerro Largo",
+  "Colonia",
+  "Durazno",
+  "Flores",
+  "Florida",
+  "Lavalleja",
+  "Maldonado",
+  "Montevideo",
+  "Paysandú",
+  "Río Negro",
+  "Rivera",
+  "Rocha",
+  "Salto",
+  "San José",
+  "Soriano",
+  "Tacuarembó",
+  "Treinta y Tres"
+];
+
+
+
 export const MainProducts: MainProductsType[] = [
   { id: 1, title: "Mates", img: "/svg/mates-svg.png" },
   { id: 2, title: "Macetas", img: "/svg/macetas-svg.png" },

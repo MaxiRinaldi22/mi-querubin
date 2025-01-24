@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function AboutMiQuerubin() {
   return (
-    <section className="bg-gradient-to-t from-primaryColor via-white to-white text-black pb-16">
+    <section className="bg-gradient-to-t from-[#f4f4f4] to-white bg-white text-black pb-16">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-12">
           <Image 

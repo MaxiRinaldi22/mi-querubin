@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 
 import { Icon } from "@/lib/Icon";
 import { ProductType } from "@/lib/types";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -28,6 +29,7 @@ export default function ProductModal({
   onAddToCart,
 }: ProductModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -43,9 +45,9 @@ export default function ProductModal({
 
   return (
     <Dialog open={true} onOpenChange={onClose}>
-      <DialogContent className="flex h-auto p-5 max-h-screen w-full flex-col sm:max-w-[90vw] lg:max-w-[1000px] xl:max-w-[1200px]">
+      <DialogContent className="flex h-auto min-h-screen w-full flex-col overflow-auto p-5 sm:max-w-[90vw] md:min-h-[50vh] lg:max-w-[1000px] xl:max-w-[1200px]">
         <DialogHeader>
-          <DialogTitle className="text-2xl text-start font-bold md:text-3xl">
+          <DialogTitle className="text-start text-2xl font-bold md:text-3xl">
             {product.name}
           </DialogTitle>
         </DialogHeader>
@@ -88,7 +90,7 @@ export default function ProductModal({
           </div>
           <div className="flex w-full flex-col md:w-1/3">
             <DialogDescription>
-              <p className="md:mb-1 text-3xl font-extrabold text-secondaryColor md:text-4xl">
+              <p className="text-3xl font-extrabold text-secondaryColor md:mb-1 md:text-4xl">
                 ${product.price.toFixed(2)}{" "}
                 <span className="text-lg font-semibold text-gray-500 md:text-xl">
                   UYU
@@ -115,14 +117,16 @@ export default function ProductModal({
                       }
                       size={24}
                     />
-                    <p className="font-bold">Producto bajo pedido:</p>
+                    <p className="font-bold">Producto bajo pedido</p>
                   </div>
-                  <p className="mt-2 text-sm">
-                    Actualmente, este producto no está en stock. Podemos
-                    fabricarlo especialmente para ti. Por favor, ten en cuenta
-                    que el tiempo de entrega será mayor debido al proceso de
-                    producción. ¡Gracias por tu paciencia y comprensión!
-                  </p>
+                  {!isMobile && (
+                    <p className="mt-2 text-sm">
+                      Actualmente, este producto no está en stock. Podemos
+                      fabricarlo especialmente para ti. Por favor, ten en cuenta
+                      que el tiempo de entrega será mayor debido al proceso de
+                      producción. ¡Gracias por tu paciencia y comprensión!
+                    </p>
+                  )}
                 </div>
               )}
             </DialogDescription>

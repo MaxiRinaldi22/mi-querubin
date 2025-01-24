@@ -15,7 +15,7 @@ interface RemoveFromCartModalProps {
   productName: string
 }
 
-export function RemoveFromCartModal({ isOpen, onClose, onConfirm, productName }: RemoveFromCartModalProps) {
+export function RemoveFromCartModal({ isOpen, onClose, onConfirm, productName }: RemoveFromCartModalProps) {  
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
