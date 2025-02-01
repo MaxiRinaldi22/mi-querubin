@@ -1,19 +1,19 @@
-import logo from "/public/mi-quierubin-simple-sinfondo-04.png";
-import Image from "next/image";
+// import logo from "/public/mi-quierubin-azul.png";
+// import Image from "next/image";
 
 export default function AboutMiQuerubin() {
   return (
-    <section className="bg-gradient-to-t from-[#f4f4f4] to-white bg-white text-black pb-16">
+    <section className="bg-white text-black pb-16">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-12">
-          <Image 
+          {/* <Image 
             src={logo} 
             alt="Mi Querubín" 
             className="mx-auto " 
             width={200} 
             height={200} 
             priority
-          />
+          /> */}
           <h2 className="text-3xl font-bold text-secondaryColor mb-4">Sobre Mi Querubín</h2>
           <p className="text-xl leading-relaxed max-w-2xl">
             ¡Bienvenidos a Mi Querubín! Soy Mariana, una apasionada artesana de Maldonado, Uruguay, con 40 años y casi

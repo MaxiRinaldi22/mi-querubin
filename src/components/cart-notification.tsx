@@ -38,11 +38,11 @@ const NotificationItem: React.FC<{
       animate={{ opacity: 1, y: 0, x: 0 }}
       exit={{ opacity: 0, y: 50, x: "100%" }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className={`z-50 mb-4 w-80 overflow-hidden rounded-lg bg-white shadow-lg ${
+      className={`z-[999] mb-4 w-80 overflow-hidden rounded-lg bg-white shadow-lg ${
         notification.type === "warning" ? "border-l-4 border-yellow-500" : ""
       }`}
     >
-      <div className="p-4">
+      <div className="p-4 z-[999]">
         <div className="flex items-center space-x-4">
           <div className="flex-shrink-0">
             <Image
@@ -94,7 +94,7 @@ export const CartNotification: React.FC = () => {
   const { notifications, removeNotification } = useNotification();
 
   return (
-    <div className="fixed bottom-4 right-4 flex flex-col-reverse items-end space-y-4 space-y-reverse">
+    <div className="fixed z-[999] bottom-4 right-4 flex flex-col-reverse items-end space-y-4 space-y-reverse">
       <AnimatePresence>
         {notifications.map((notification) => (
           <NotificationItem

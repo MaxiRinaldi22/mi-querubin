@@ -16,8 +16,8 @@ export default {
   			lg: '0 33px 36px rgba(0, 0, 0, 1)'
   		},
   		colors: {
-  			primaryColor: '#74ffeb',
-  			secondaryColor: '#003b73',
+  			primaryColor: '#D8F1ED',
+  			secondaryColor: '#3F6F6A',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

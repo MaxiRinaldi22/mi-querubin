@@ -9,30 +9,24 @@ import { Icon } from "@/lib/Icon";
 import { CartItem } from "./CartItem";
 import MobileSidebar from "./MobileSideBar";
 import SearchBar from "./SearchBar";
-import logo from "/public/mi-quierubin-logo-m-04.png";
+import logo from "/public/mi-quierubin-logo.png";
 
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <header className="bg-[#f4f4f4] p-3 md:py-4 shadow-md md:shadow-none">
+    <header className="bg-white p-3 shadow-md md:py-4 md:shadow-none">
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold">
           <Image
             src={logo}
             alt="Mi quierubin logo"
-            width={150}
-            height={150}
-            className="hidden md:flex"
-          />
-          <Image
-            src={logo}
-            alt="Mi quierubin logo"
-            width={110}
-            height={110}
-            className="flex md:hidden"
+            width={1216}
+            height={637}
+            className="max-w-[120px] md:max-w-[170px]"
           />
         </Link>
+
         <div className="hidden max-w-xl flex-1 md:block">
           <SearchBar />
         </div>
@@ -45,7 +39,7 @@ export default function Header() {
                 path={
                   <path
                     fill="none"
-                    stroke="#74ffeb"
+                    stroke="#3F6F6A"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"

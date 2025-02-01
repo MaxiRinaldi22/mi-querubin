@@ -96,7 +96,7 @@ export default function ProductModal({
                   UYU
                 </span>
               </p>
-              <p className="mb-4 text-lg md:text-xl">
+              <p className="mb-4 text-lg">
                 Categoria:{" "}
                 {product.category.charAt(0).toUpperCase() +
                   product.category.slice(1)}
@@ -132,7 +132,7 @@ export default function ProductModal({
             </DialogDescription>
             <Button
               onClick={() => onAddToCart(product)}
-              className="mt-auto w-full bg-secondaryColor py-6 text-lg"
+              className="mt-auto w-full bg-secondaryColor transition-colors duration-500 hover:text-secondaryColor hover:bg-primaryColor py-6 text-lg"
             >
               <ShoppingCart className="mr-2 h-6 w-6" /> Añadir al carrito
             </Button>

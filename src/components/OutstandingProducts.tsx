@@ -42,7 +42,7 @@ export default function ProductCards() {
   }, []);
 
   const ProductCard = ({ title, image }: { title: string; image: string }) => (
-    <div className="center group h-48 w-full cursor-pointer rounded-md bg-gradient-to-b from-white via-white/70 to-[#74ffeb]">
+    <div className="center group h-48 w-full cursor-pointer rounded-md shadow-md bg-gradient-to-b from-white to-primaryColor">
       <CardContent className="flex w-full flex-row-reverse items-center justify-between p-0 px-10">
         <Image
           src={image || "/placeholder.svg"}
@@ -73,7 +73,7 @@ export default function ProductCards() {
   );
 
   return (
-    <div className="container mx-auto px-4 py-14 md:py-20">
+    <div className="container mx-auto px-4 py-14 md:py-12">
       {/* Desktop View */}
       <div className="hidden gap-6 md:grid md:grid-cols-2 xl:grid-cols-4">
         {MainProducts.map((product) => (

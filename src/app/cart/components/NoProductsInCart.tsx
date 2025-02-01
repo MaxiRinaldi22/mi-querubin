@@ -6,7 +6,7 @@ export function NoProductsInCart() {
   const { cartInfo } = useCartInfo();
 
   return (
-    <>
+    <section className="bg-white min-h-[70vh] center w-full h-full">
       {cartInfo.length === 0 ? (
         <section className="flex flex-col items-center justify-center">
           <svg
@@ -23,14 +23,14 @@ export function NoProductsInCart() {
               <path d="M3.694 12.668c.145-1.741.218-2.611.792-3.14S5.934 9 7.681 9h8.639c1.746 0 2.62 0 3.194.528s.647 1.399.792 3.14l.514 6.166c.084 1.013.126 1.52-.17 1.843c-.298.323-.806.323-1.824.323H5.174c-1.017 0-1.526 0-1.823-.323s-.255-.83-.17-1.843z" />
             </g>
           </svg>
-          <p className="text-base font-[600] text-neutral-500">
+          <p className="text-xl font-[600] text-neutral-500">
             No hay productos en el carrito
           </p>
-          <button className="mt-8 rounded-lg bg-secondaryColor px-5 py-3 font-bold text-white transition duration-300 hover:bg-[#34383d]">
+          <button className="mt-8 rounded-lg bg-secondaryColor px-5 py-3 font-bold text-white transition duration-500 hover:bg-primaryColor hover:text-secondaryColor">
             <Link href={"/productos"}>VOLVER A LA TIENDA</Link>
           </button>
         </section>
       ) : null}
-    </>
+    </section>
   );
 }

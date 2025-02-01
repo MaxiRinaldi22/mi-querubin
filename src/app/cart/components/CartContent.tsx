@@ -32,13 +32,11 @@ export function CartContent() {
   console.log(itemToRemove);
 
   const handleRemoveClick = (item: ProductCartType) => {
-    // console.log("Item to remove:", item);
     setItemToRemove(item);
     setIsModalOpen(true);
   };
 
   const handleConfirmRemove = () => {
-    // console.log("Confirm remove item:", itemToRemove);
     if (itemToRemove) {
       removeFromCart(itemToRemove.product.id);
       setIsModalOpen(false);
@@ -50,10 +48,7 @@ export function CartContent() {
     setCartInfo(cart);
   }, [cart, setCartInfo]);
 
-  // Esto no funciona bien saca cualquier componente
   const removeFromCart = (productId: string) => {
-    // console.log("Removing product with ID:", productId);
-
     setCart(cart.filter((item) => item.product.id !== productId));
   };
 
@@ -63,7 +58,7 @@ export function CartContent() {
         item.product.id === productId
           ? { ...item, quantity: Math.max(0, newQuantity) }
           : item,
-      ),
+      ).filter((item) => item.quantity > 0),
     );
   };
 
@@ -83,7 +78,9 @@ export function CartContent() {
   };
 
   return (
-    <>
+    <section className="bg-white">
+
+    <div className="container mx-auto min-h-screen p-4">
       <CartTimeLine step={1} />
       <div className="hidden md:mb-4 md:grid md:grid-cols-[1fr_auto_auto_auto_auto] md:gap-4 md:px-4">
         <div className="text-sm font-medium text-muted-foreground">
@@ -283,6 +280,8 @@ export function CartContent() {
         isOpen={isConfirmOutOfStockModalOpen}
         onClose={() => setIsConfirmOutOfStockModalOpen(false)}
       />
-    </>
+    </div>
+    </section>
+
   );
 }

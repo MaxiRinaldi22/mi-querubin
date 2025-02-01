@@ -11,7 +11,7 @@ export default function Categories() {
   const isTop = useTop();
 
   return (
-    <nav className="hidden border-y border-[#E7E7E7] bg-[#f4f4f4] py-2 text-secondaryColor md:flex md:items-center md:justify-between">
+    <nav className="hidden border-y border-secondaryColor bg-white py-2 text-secondaryColor md:flex md:items-center md:justify-between">
       <div className="container mx-auto flex items-center justify-between">
         {/* Primer Div */}
         <div className="flex flex-1 justify-start">
@@ -24,7 +24,7 @@ export default function Categories() {
             {categories.map((category) => (
               <li key={category} className="flex items-center gap-3">
                 <Link href={`/categoria/${category.toLowerCase()}`}>
-                  <button className="text-base font-semibold">
+                  <button className="text-base font-semibold transition duration-500 will-change-transform hover:scale-105">
                     {category}
                   </button>
                 </Link>

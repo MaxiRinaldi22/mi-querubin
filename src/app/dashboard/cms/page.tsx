@@ -71,8 +71,15 @@ export default function CMSPage() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    // console.log(values);
     // Here you would typically send the data to your backend
+    // Esto tiene que ser un asyn await 
+    // Primero enviando al sroage la imagen
+    // Luego recuperando el link de la imagen
+    // Luego enviar a la base de datos de productos
+    const name = form.getValues("name");
+    console.log(name);
+    
   }
 
   const handleImageChange = (

@@ -109,19 +109,19 @@ export default function SearchBar() {
               placeholder="Buscar productos..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-full border-2 border-primaryColor bg-[#f4f4f4] px-3 py-2 outline-none"
+              className="w-full rounded-full border-2 border-secondaryColor bg-white text-secondaryColor px-3 py-2 outline-none"
             />
             <button
               type="submit"
-              className="center absolute right-0 top-0 h-full rounded-br-full rounded-tr-full bg-primaryColor px-4"
+              className="center absolute right-0 top-0 h-full rounded-br-full rounded-tr-full bg-secondaryColor px-4"
             >
-              <Search className="h-5 w-5 text-[#f4f4f4]" />
+              <Search className="h-5 w-5 text-white" />
             </button>
           </div>
         </form>
         {isResultsVisible && searchResults.length > 0 && (
           <Card className="absolute z-[100] mt-1 max-h-96 w-full overflow-auto">
-            <CardContent className="bg-[#f4f4f4] p-2">
+            <CardContent className="bg-white p-2">
               {searchResults.map((product: ProductType) => (
                 <button
                   onClick={() => handleClickProduct(product)}

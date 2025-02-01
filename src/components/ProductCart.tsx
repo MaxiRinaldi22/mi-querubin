@@ -35,7 +35,7 @@ export default function ProductCard({
         <div className="absolute bottom-4 left-4 right-4 flex justify-between transition-opacity duration-300">
           <Button
             onClick={() => onProductClick(product)}
-            className="rounded-full bg-white/90 p-2 text-secondaryColor shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-[#74ffeb]"
+            className="rounded-full bg-white/90 p-2 text-secondaryColor shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-primaryColor hover:bg-secondaryColor"
             size="icon"
             variant="secondary"
           >
@@ -43,7 +43,7 @@ export default function ProductCard({
           </Button>
           <Button
             onClick={() => onAddToCart(product)}
-            className="rounded-full bg-secondaryColor p-2 text-white shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-[#74ffeb]"
+            className="rounded-full bg-secondaryColor p-2 text-white shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-primaryColor hover:text-secondaryColor"
             size="icon"
             variant="secondary"
           >

@@ -35,37 +35,39 @@ export default function CategoryPage(props: Props) {
   }, [props.params, inStockOnly]);
 
   return (
-    <div className="container mx-auto min-h-screen px-4 py-8">
-      <div className="flex flex-col justify-start items-start w-full md:items-start md:justify-start">
-        <h1 className="mb-8 border-l-2 border-[#74ffeb] pl-4 text-3xl font-bold capitalize md:text-4xl">
-          {category.replaceAll("%20", " ")}
-        </h1>
+    <section className="bg-white">
+      <div className="container mx-auto min-h-screen px-4 py-8">
+        <div className="flex w-full flex-col items-start justify-start md:items-start md:justify-start">
+          <h1 className="mb-8 border-l-2 border-primaryColor pl-4 text-3xl font-bold capitalize md:text-4xl">
+            {category.replaceAll("%20", " ")}
+          </h1>
 
-        <div className="mb-4 flex items-center space-x-2">
-          <input
-            type="checkbox"
-            id="stock"
-            name="stock"
-            className="h-4 w-4"
-            checked={inStockOnly}
-            onChange={(e) => setInStockOnly(e.target.checked)}
-          />
-          <label
-            htmlFor="stock"
-            className="text-base font-semibold text-gray-900"
-          >
-            En stock
-          </label>
+          <div className="mb-4 flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="stock"
+              name="stock"
+              className="h-4 w-4"
+              checked={inStockOnly}
+              onChange={(e) => setInStockOnly(e.target.checked)}
+            />
+            <label
+              htmlFor="stock"
+              className="text-base font-semibold text-gray-900"
+            >
+              En stock
+            </label>
+          </div>
         </div>
-      </div>
 
-      {filteredProducts.length > 0 ? (
-        <ProductList products={filteredProducts} />
-      ) : (
-        <p className="text-xl text-gray-600">
-          No products found in the {category.replaceAll("%20", " ")} category.
-        </p>
-      )}
-    </div>
+        {filteredProducts.length > 0 ? (
+          <ProductList products={filteredProducts} />
+        ) : (
+          <p className="text-xl text-gray-600">
+            No products found in the {category.replaceAll("%20", " ")} category.
+          </p>
+        )}
+      </div>
+    </section>
   );
 }
