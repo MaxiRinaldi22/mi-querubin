@@ -41,30 +41,33 @@ export default function CategoryPage(props: Props) {
           <h1 className="mb-8 border-l-2 border-primaryColor pl-4 text-3xl font-bold capitalize md:text-4xl">
             {category.replaceAll("%20", " ")}
           </h1>
-
-          <div className="mb-4 flex items-center space-x-2">
-            <input
-              type="checkbox"
-              id="stock"
-              name="stock"
-              className="h-4 w-4"
-              checked={inStockOnly}
-              onChange={(e) => setInStockOnly(e.target.checked)}
-            />
-            <label
-              htmlFor="stock"
-              className="text-base font-semibold text-gray-900"
-            >
-              En stock
-            </label>
-          </div>
         </div>
 
         {filteredProducts.length > 0 ? (
-          <ProductList products={filteredProducts} />
+          <>
+            <div className="mb-4 flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="stock"
+                name="stock"
+                className="h-4 w-4 bg-secondaryColor"
+                checked={inStockOnly}
+                onChange={(e) => setInStockOnly(e.target.checked)}
+              />
+              <label
+                htmlFor="stock"
+                className="text-base font-semibold text-gray-900"
+              >
+                Mostrar solo productos en stock
+              </label>
+            </div>
+
+            <ProductList products={filteredProducts} />
+          </>
         ) : (
           <p className="text-xl text-gray-600">
-            No products found in the {category.replaceAll("%20", " ")} category.
+            No se encontraron productos en la categoria{" "}
+            {category.replaceAll("%20", " ")}.
           </p>
         )}
       </div>

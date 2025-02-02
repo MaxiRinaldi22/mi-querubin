@@ -3,6 +3,8 @@
 import type React from "react";
 import { createContext, useContext, useState } from "react";
 
+import useCartInfo from "@/hooks/useCartInfo";
+
 type Product = {
   id: string;
   name: string;
@@ -29,12 +31,17 @@ export const NotificationContextProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const { cartInfo } = useCartInfo();
 
   const addNotification = (product: Product) => {
     const existingNotification = notifications.find(
       (n) => n.product.id === product.id,
     );
-    if (existingNotification) {
+
+    // Esto esta raro porque le id que se le da a la notificacion es el name del producto
+    const isInCart = cartInfo.some((item) => item.product.name === product.id);
+
+    if (existingNotification || isInCart) {
       setNotifications((prev) => [
         { id: Date.now().toString(), product, type: "warning" },
         ...prev,

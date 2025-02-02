@@ -53,14 +53,14 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-to-t from-secondaryColor via-[#9FB8B5] to-white">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto p-2 pt-8 md:p-4">
         <div className="flex flex-col items-center justify-between gap-8 px-5 md:flex-row md:px-10">
           <div className="hidden h-full w-full items-start justify-center md:flex">
             <Image src={logo} alt="logo" width={300} height={300} />
           </div>
         </div>
 
-        <div className="mt-2 flex items-center justify-between border-t border-gray-200 pt-4 text-center text-primaryColor">
+        <div className="mt-2 flex gap-3 flex-col-reverse md:flex-row text-xs md:text-base items-center justify-between md:border-t md:border-gray-200 pt-4 text-center text-primaryColor">
           <p>
             &copy; {new Date().getFullYear()} Mi querubin | Tienda online. Todos
             los derechos reservados.

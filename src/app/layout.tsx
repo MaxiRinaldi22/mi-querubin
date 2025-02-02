@@ -4,6 +4,7 @@ import { mulish } from "@/lib/fonts";
 
 import "./globals.css";
 
+import { CartContextProvider } from "@/context/CartContextProvider";
 import { NotificationContextProvider } from "@/context/NotificationContextProvider";
 
 import { CartNotification } from "@/components/cart-notification";
@@ -24,10 +25,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={mulish.className}>
         <LayoutScreen>
-          <NotificationContextProvider>
-            <LayoutWrapper>{children}</LayoutWrapper>
-            <CartNotification />
-          </NotificationContextProvider>
+          <CartContextProvider>
+            <NotificationContextProvider>
+              <LayoutWrapper>{children}</LayoutWrapper>
+              <CartNotification />
+            </NotificationContextProvider>
+          </CartContextProvider>
         </LayoutScreen>
       </body>
     </html>

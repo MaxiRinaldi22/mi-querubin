@@ -47,7 +47,7 @@ export default function ProductModal({
     <Dialog open={true} onOpenChange={onClose}>
       <DialogContent className="flex h-auto min-h-screen w-full flex-col overflow-auto p-5 sm:max-w-[90vw] md:min-h-[50vh] lg:max-w-[1000px] xl:max-w-[1200px]">
         <DialogHeader>
-          <DialogTitle className="text-start text-2xl font-bold md:text-3xl">
+          <DialogTitle className="mt-6 text-start text-xl font-bold md:text-3xl">
             {product.name}
           </DialogTitle>
         </DialogHeader>
@@ -96,14 +96,14 @@ export default function ProductModal({
                   UYU
                 </span>
               </p>
-              <p className="mb-4 text-lg">
+              <p className="text-lg font-semibold md:mb-4">
                 Categoria:{" "}
                 {product.category.charAt(0).toUpperCase() +
                   product.category.slice(1)}
               </p>
-              <p className="mb-6 text-base">{product.description}</p>
+              <p className={`${product.stock !== 0 ? "mb-2" : "mb-4"} text-base md:mb-6`}>{product.description}</p>
               {product.stock === 0 && (
-                <div className="my-4 rounded-md border-l-4 border-yellow-500 bg-yellow-100 p-4 text-yellow-700">
+                <div className="my-2 rounded-md border-l-4 border-yellow-500 bg-yellow-100 p-1 text-yellow-700 md:my-4 md:p-4">
                   <div className="flex items-center gap-2">
                     <Icon
                       path={
@@ -132,7 +132,7 @@ export default function ProductModal({
             </DialogDescription>
             <Button
               onClick={() => onAddToCart(product)}
-              className="mt-auto w-full bg-secondaryColor transition-colors duration-500 hover:text-secondaryColor hover:bg-primaryColor py-6 text-lg"
+              className="mt-auto w-full bg-secondaryColor py-6 text-lg transition-colors duration-500 hover:bg-primaryColor hover:text-secondaryColor"
             >
               <ShoppingCart className="mr-2 h-6 w-6" /> Añadir al carrito
             </Button>

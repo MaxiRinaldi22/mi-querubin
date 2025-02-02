@@ -39,7 +39,7 @@ export default function MobileSidebar({
               ))}
             </ul>
           </nav>
-          <div className="h-[35vh] flex justify-center items-end">
+          <div className="h-[20vh] flex justify-center items-end">
                   <Link
                     href="https://wa.me/598099112107"
                     className="flex items-center justify-between gap-2 rounded-md border border-transparent bg-[#1faf38] px-4 py-2 text-base font-medium text-white shadow-sm"

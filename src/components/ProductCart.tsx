@@ -32,10 +32,10 @@ export default function ProductCard({
             className="transition-transform will-change-transform duration-500 ease-out group-hover:scale-105"
           />
         </div>
-        <div className="absolute bottom-4 left-4 right-4 flex justify-between transition-opacity duration-300">
+        <div className="absolute bottom-4 left-1 right-1 md:left-4 md:right-4 flex justify-between transition-opacity duration-300">
           <Button
             onClick={() => onProductClick(product)}
-            className="rounded-full bg-white/90 p-2 text-secondaryColor shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-primaryColor hover:bg-secondaryColor"
+            className="rounded-full bg-white/90 p-2 text-secondaryColor shadow-md backdrop-blur-sm transition-all duration-300 hover:text-primaryColor hover:bg-secondaryColor"
             size="icon"
             variant="secondary"
           >
@@ -53,7 +53,7 @@ export default function ProductCard({
       </CardHeader>
       <CardContent
         onClick={() => onProductClick(product)}
-        className="flex flex-grow flex-col justify-between p-6"
+        className="flex flex-grow flex-col p-2 justify-between md:p-6"
       >
         <div>
           <CardTitle className="mb-2 text-lg font-semibold tracking-tight text-gray-900 ">

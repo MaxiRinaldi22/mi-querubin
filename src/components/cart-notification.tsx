@@ -38,7 +38,7 @@ const NotificationItem: React.FC<{
       animate={{ opacity: 1, y: 0, x: 0 }}
       exit={{ opacity: 0, y: 50, x: "100%" }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className={`z-[999] mb-4 w-80 overflow-hidden rounded-lg bg-white shadow-lg ${
+      className={`z-[999] pointer-events-auto mb-4 w-80 overflow-hidden rounded-lg bg-white shadow-lg ${
         notification.type === "warning" ? "border-l-4 border-yellow-500" : ""
       }`}
     >
@@ -59,8 +59,8 @@ const NotificationItem: React.FC<{
             </p>
             <p className="text-sm text-gray-500">
               {notification.type === "success"
-                ? "Product added to cart"
-                : "Product already in cart"}
+                ? "Producto agregado al carrito"
+                : "Producto ya en el carrito"}
             </p>
           </div>
           {notification.type === "warning" && (

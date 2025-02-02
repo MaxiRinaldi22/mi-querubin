@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <div className="w-full overflow-hidden bg-white">
         <MainProducts />
-        <div className="bg-white px-5 py-14 md:mx-auto md:px-48 md:pb-20">
+        <div className="bg-white px-5 pb-14 md:mx-auto md:px-48 md:pb-20">
           <h2 className="mb-8 border-l-2 border-primaryColor pl-4 text-3xl font-bold md:text-4xl">
             Destacados
           </h2>
