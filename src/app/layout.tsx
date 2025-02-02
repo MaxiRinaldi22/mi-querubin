@@ -7,6 +7,7 @@ import "./globals.css";
 import { NotificationContextProvider } from "@/context/NotificationContextProvider";
 
 import { CartNotification } from "@/components/cart-notification";
+import LayoutScreen from "@/components/LayoutScreen";
 import LayoutWrapper from "@/components/LayoutWrapper";
 
 export const metadata: Metadata = {
@@ -22,10 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={mulish.className}>
-        <NotificationContextProvider>
-          <LayoutWrapper>{children}</LayoutWrapper>
-          <CartNotification />
-        </NotificationContextProvider>
+        <LayoutScreen>
+          <NotificationContextProvider>
+            <LayoutWrapper>{children}</LayoutWrapper>
+            <CartNotification />
+          </NotificationContextProvider>
+        </LayoutScreen>
       </body>
     </html>
   );
